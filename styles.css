@@ -1,10 +1,13 @@
 :root {
-    --background: #1a1b1e;
+    --bg-color: #28170b;
+    --light: #704d38;
+    --mid: #9D7055;
+    --dark: #3C210B;
     --roblox-orange: #ff7b26;
-    /* Removed --roblox-purple and --neon-purple since we're using orange now */
     --text: #ffffff;
     --box-bg: #393B3D;
     --border: #666666;
+    --bg-gradient: linear-gradient(to right, #fff, #000);
 }
 
 html, body {
@@ -14,100 +17,343 @@ html, body {
     padding: 0;
 }
 
+@font-face {
+    font-family: "Poppins Regular";
+    src: url("https://db.onlinewebfonts.com/t/510293e71666d65518569ae926af63f5.eot");
+    src: url("https://db.onlinewebfonts.com/t/510293e71666d65518569ae926af63f5.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/510293e71666d65518569ae926af63f5.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/510293e71666d65518569ae926af63f5.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/510293e71666d65518569ae926af63f5.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/510293e71666d65518569ae926af63f5.svg#Poppins Regular")format("svg");
+}
+
 body {
-    background: linear-gradient(
-        125deg,
-        rgba(255, 123, 38, 0.1) 0%,
-        #1a1b1e 30%,
-        #2a2b2e 50%,
-        #1a1b1e 70%,
-        rgba(147, 51, 234, 0.1) 100%
-    );
+    background: var(--dark) url('assets/Coffee_Background.png') center/cover no-repeat fixed;
     color: var(--text);
-    font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+    font-family: "Poppins Regular";
     margin: 0;
     padding-top: 80px;
     line-height: 1.6;
     min-height: 100vh;
     background-attachment: fixed;
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+    display: none;
 }
 
-.container {
-    max-width: 1200px;
+.topbar-title {
+    margin: 0;
+    font-size: 5vmin;
+    font-family: "Poppins Regular", sans-serif;
+    font-weight: 700;
+    color: var(--roblox-orange);
+    -webkit-text-fill-color: var(--roblox-orange); /* ensure fill is applied for webkit */
+    -webkit-text-stroke: 1.5px rgba(255, 153, 0, 0.8); /* visible outline/stroke */
+    text-shadow: 
+        0 0 4px rgba(255, 255, 255, 0.8),
+        0 0 21px rgba(255, 173, 119, 0.3),
+        0 0 35px rgba(0,0,0,0.6);
+    max-width: 95%;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.tall-container {
     margin: 0 auto;
-    padding: 20px;
-    position: relative;
+    position: fixed;
+    left: 17.5%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
-    box-sizing: border-box; /* Include padding in width calculation */
+    max-width: calc(40% * 6 / 9);
+    aspect-ratio: 6 / 9;
+    max-height: 65%;
+    border: 4px solid var(--light);
+    border-radius: 28px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-.container::before {
+.tall-container::before {
     content: '';
-    position: absolute;
+    position: fixed;
+    left: 0;
+    right: 0;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(255, 81, 0, 0.1) 0%, transparent 70%);
+    bottom: 0;
+    background: var(--mid);
+    border: var(--dark);
+    border-radius: 24px;
     pointer-events: none;
     z-index: -1;
 }
 
-.roblox-title {
-    color: var(--roblox-orange);
-    font-size: 60px;
-    font-weight: 900;
+.tall-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    text-transform: uppercase;
+    pointer-events: none;
+    z-index: 2;
+    color: var(--text);
+}
+
+.tall-title {
+    margin: 0;
+    font-size: clamp(24px, 5vmin, 56px);
+    font-family: "Graffiti", sans-serif;
+    font-weight: 700;
+    color: var(--roblox-orange);
+    -webkit-text-fill-color: var(--roblox-orange);
+    -webkit-text-stroke: 1.5px rgba(0,0,0,0.8);
     text-shadow: 
-        -3px -3px 0 #000,
-        3px -3px 0 #000,
-        -3px 3px 0 #000,
-        3px 3px 0 #000,
-        0 0 20px var(--roblox-orange),
-        0 0 40px rgba(255, 123, 38, 0.5);
-    letter-spacing: 3px;
-    margin: 28px 0;
-    animation: titlePulse 2s infinite;
+        0 0 4px rgba(0,0,0,0.8),
+        0 0 21px rgba(255,123,38,0.3),
+        0 0 35px rgba(0,0,0,0.6);
+    max-width: 95%;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-@keyframes titlePulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-    100% { transform: scale(1); }
+.tall-container:hover .tall-title {
+    transform: scale(1.1);
 }
 
-.profile-image-container {
-    width: 210px;
-    height: 210px;
-    margin: 28px auto;
-    border: 4px solid var(--roblox-orange);
-    border-radius: 14px;
+.tall-subtext {
+    margin: 8px 0 0 0;
+    font-size: clamp(12px, 2.2vmin, 16px);
+    font-family: "Poppins Regular", sans-serif;
+    font-weight: 700;
+    opacity: 0.9;
+    -webkit-text-fill-color: var(--text);
+    text-shadow: 
+        0 0 3px rgba(0,0,0,0.7),
+        0 0 18px rgba(255,123,38,0.22);
+    transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+.tall-container:hover .tall-subtext {
+    transform: scale(1.1);
+}
+
+.long-container {
+    margin: 0 auto;
+    position: fixed;
+    left: 65%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    max-width: calc(70% * 9 / 5);
+    aspect-ratio: 9 / 5;
+    max-height: 70%;
+    border: 4px solid var(--light);
+    border-radius: 28px;
+    box-sizing: border-box;
     overflow: hidden;
-    background: var(--box-bg);
-    box-shadow: 
-        0 0 0 4px #000,
-        0 0 21px rgba(255,123,38,0.5),
-        0 0 35px rgba(0,0,0,0.5);
-    transform: perspective(1000px) rotateX(5deg);
-    transition: transform 0.3s ease;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
 }
 
-.profile-image-container:hover {
-    transform: perspective(1000px) rotateX(0deg) scale(1.02);
-}
-
-.profile-image {
-    width: 100%;
+.container-content {
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
+    width: 100%;
+    gap: 0;
 }
 
-.profile-image:hover {
-    transform: scale(1.05);
+.websites-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    height: 25%;
+    padding: 8px 0;
+}
+
+.websites-list img {
+    height: 64px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(100%);
+}
+
+.websites-list a:hover img {
+    transform: scale(1.1) rotate(4deg);
+    filter: grayscale(0%);
+}
+
+.scroller-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    padding: 12px 0;
+}
+
+.scroller-section h3 {
+    margin: 0;
+    padding: 0 8px;
+    font-size: 12px;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    flex-shrink: 0;
+}
+
+.languages-scroll,
+.work-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    height: 60px;
+    -webkit-overflow-scrolling: touch;
+    transform: rotateX(180deg);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,123,38,0.6) rgba(0,0,0,0.2);
+    flex: 0 0 100%;
+}
+
+.languages-scroll > *,
+.work-scroll > * {
+    display: inline-flex;
+    align-items: center;
+    justify-content: left;
+    transform: rotateX(180deg);
+    margin-right: 8px;
+    height: 100%;
+    vertical-align: bottom;
+    flex-shrink: 0;
+}
+
+.languages-scroll > * {
+    width: 60px;
+    height: 60px;
+    margin-right: 6px;
+    display: inline-block;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+.lang-item {
+    position: relative;
+    width: auto;
+    height: 95%;
+    background-color: var(--dark);
+    display: inline-block;
+    border: 2px solid var(--light);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.lang-item img {
+    height: 90%;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+    width: auto;
+    object-fit: contain;
+}
+
+.lang-item span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--text);
+    font-size: 9px;
+    padding: 2px 0;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.work-scroll a {
+    position: relative;
+    height: 95%;
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid var(--light);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.work-item img {
+    height: 100%;
+    width: auto;
+    max-width: none;
+    object-fit: cover;
+}
+
+.work-item span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--text);
+    font-size: 11px;
+    padding: 4px 2px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.platform-icon {
+    height: 1em;
+    width: 1em;
+    object-fit: contain;
+    max-width: 1em !important;
+    max-height: 1em !important;
+}
+
+.languages-scroll::-webkit-scrollbar,
+.work-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+.languages-scroll::-webkit-scrollbar-track,
+.work-scroll::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.2);
+    border-radius: 3px;
+}
+.languages-scroll::-webkit-scrollbar-thumb,
+.work-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255,123,38,0.6);
+    border-radius: 3px;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+}
+
+.long-container::before {
+    content: '';
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #9d71556b;
+    border: var(--dark);
+    border-radius: 24px;
+    pointer-events: none;
+    z-index: -1;
 }
 
 .topbar {
@@ -116,14 +362,14 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: linear-gradient(145deg, #1e2023 0%, #2a2b2e 100%);
+    background: #28170bbb;
     border-bottom: 4px solid var(--roblox-orange);
     box-shadow: 
-        0 0 0 4px #000,
+        0 0 0 4px var(--light),
         0 0 21px rgba(255,123,38,0.3),
-        0 0 35px rgba(0,0,0,0.5);
+        0 0 35px var(--dark);
     padding: 10px 0;
-    height: 60px; /* Fixed height */
+    height: 60px;
 }
 
 .topbar-content {
@@ -133,7 +379,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%; /* Fill the topbar height */
+    height: 100%;
 }
 
 .logo-container {
@@ -142,7 +388,11 @@ body {
     gap: 15px;
 }
 
-.topbar-profile {
+.logo-container:hover {
+    transform: scale(1.05);
+}
+
+.profile {
     width: 40px;
     height: 40px;
     border: 2px solid var(--roblox-orange);
@@ -150,345 +400,29 @@ body {
     overflow: hidden;
     background: var(--box-bg);
     box-shadow: 
-        0 0 0 2px #000,
+        0 0 0 2px rgba(0,0,0,0.2),
         0 0 10px rgba(255,123,38,0.3);
     transition: all 0.3s ease;
 }
 
-.topbar-profile:hover {
+.logo-container:hover .profile {
     transform: scale(1.05);
     border-color: var(--roblox-orange);
     box-shadow: 
-        0 0 0 2px #000,
+        0 0 0 2px rgba(0,0,0,0.4),
         0 0 15px rgba(255,123,38,0.5);
 }
 
-.topbar-profile-image {
+.profile-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.topbar-profile:hover .topbar-profile-image {
-    transform: scale(1.1);
-}
-
-.logo {
-    color: var(--roblox-orange);
-    font-size: 24px;
-    font-weight: 900;
-    text-transform: uppercase;
-    text-shadow: 
-        -2px -2px 0 #000,
-        2px -2px 0 #000,
-        -2px 2px 0 #000,
-        2px 2px 0 #000,
-        0 0 10px var(--roblox-orange);
-    white-space: nowrap;
-}
-
-.nav-links {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 10px;
-    align-items: center;
-    height: 100%;
-    max-width: 800px; /* Limit maximum width */
-    width: 100%;
-}
-
-.nav-links::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
-}
-
-/* Navigation button styles */
-.nav-button {
-    height: 35px;
-    background: linear-gradient(to bottom, #4a4d52, #2e3035);
-    background-image: url('assets/stud_texture.png');
-    background-size: 50px 50px; /* Smaller texture size */
-    background-blend-mode: overlay;
-    color: var(--text);
-    padding: 0 15px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 900;
-    font-size: 13px;
-    text-transform: uppercase;
-    border: 3px solid #000;
-    box-shadow: 
-        inset 0 1px 0 rgba(255,255,255,0.3),
-        0 0 0 2px #4a4d52;
-    transition: all 0.2s ease;
-    position: relative;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    white-space: nowrap;
-}
-
-.nav-button::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent 0%,
-        rgba(255,255,255,0.1) 50%,
-        transparent 100%
-    );
-    transform: translateX(-100%) translateY(-100%) rotate(45deg);
-    transition: transform 0.3s ease;
-}
-
-.nav-button:hover::after {
-    transform: translateX(100%) translateY(100%) rotate(45deg);
-}
-
-.nav-button:hover {
-    background: linear-gradient(to bottom, #5a5d62, #3e4045);
-    background-image: url('assets/stud_texture.png');
-    background-size: 50px 50px; /* Smaller texture size */
-    background-blend-mode: overlay;
-    border-color: var(--roblox-orange);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 
-        inset 0 1px 0 rgba(255,255,255,0.3),
-        0 0 0 2px #5a5d62,
-        0 8px 15px rgba(0,0,0,0.5),
-        0 0 20px rgba(255,123,38,0.3);
-    text-shadow: 0 0 10px rgba(255,255,255,0.5);
-}
-
-.nav-button:active {
-    background: linear-gradient(to bottom, #2e3035, #4a4d52);
-    transform: translateY(1px);
-    box-shadow: 
-        inset 0 2px 4px rgba(0,0,0,0.3),
-        0 0 0 2px #2e3035;
-}
-
-/* Social button styles */
-.social-links {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 18px;
-    padding: 11px;
-}
-
-.social-button {
-    background: linear-gradient(to bottom, #4a4d52, #2e3035);
-    background-image: url('assets/stud_texture.png') !important; /* Force the texture */
-    background-size: 50px 50px !important; /* Smaller texture size */
-    background-blend-mode: overlay !important;
-    color: var(--text);
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 900;
-    font-size: 16px;
-    text-transform: uppercase;
-    border: 3px solid #000;
-    box-shadow: 
-        inset 0 1px 0 rgba(255,255,255,0.3),
-        0 0 0 2px #4a4d52;
-    transition: all 0.2s ease;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.social-button::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent 0%,
-        rgba(255,255,255,0.1) 50%,
-        transparent 100%
-    );
-    transform: translateX(-100%) translateY(-100%) rotate(45deg);
-    transition: transform 0.3s ease;
-}
-
-.social-button:hover::after {
-    transform: translateX(100%) translateY(100%) rotate(45deg);
-}
-
-.social-button:hover {
-    background: linear-gradient(to bottom, #5a5d62, #3e4045);
-    background-image: url('assets/stud_texture.png') !important;
-    background-size: 50px 50px !important; /* Smaller texture size */
-    background-blend-mode: overlay !important;
-    border-color: var(--roblox-orange);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 
-        inset 0 1px 0 rgba(255,255,255,0.3),
-        0 0 0 2px #5a5d62,
-        0 8px 15px rgba(0,0,0,0.5),
-        0 0 20px rgba(255,123,38,0.3);
-    text-shadow: 0 0 10px rgba(255,255,255,0.5);
-}
-
-.social-button:active {
-    background: linear-gradient(to bottom, #2e3035, #4a4d52);
-    background-image: url('assets/stud_texture.png') !important;
-    background-size: 50px 50px !important; /* Smaller texture size */
-    background-blend-mode: overlay !important;
-    transform: translateY(1px);
-    box-shadow: 
-        inset 0 2px 4px rgba(0,0,0,0.3),
-        0 0 0 2px #2e3035;
-}
-
-.content-box {
-    background: linear-gradient(145deg, #1e2023 0%, #2a2b2e 100%);
-    border: 4px solid var(--roblox-orange);
-    border-radius: 14px;
-    padding: 28px;
-    margin-bottom: 35px;
-    box-shadow: 
-        0 0 0 4px #000,
-        0 0 21px rgba(255,123,38,0.3),
-        0 0 35px rgba(0,0,0,0.5);
-    position: relative;
     overflow: hidden;
 }
 
-.content-box::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(255,123,38,0.1) 0%, transparent 70%);
-    pointer-events: none;
-}
-
-h2 {
-    color: var(--roblox-orange);
-    font-size: 34px;
-    font-weight: 900;
-    text-transform: uppercase;
-    border-bottom: 4px solid var(--roblox-orange);
-    padding-bottom: 14px;
-    margin-top: 0;
-    text-shadow: 
-        3px 3px 0 #000,
-        0 0 20px var(--roblox-orange);
-    position: relative;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 21px;
-    padding: 14px 0;
-    align-items: start; /* Ensures cards don't stretch to match tallest item */
-}
-
-.project-card {
-    background: linear-gradient(145deg, #2e3035, #1e2023);
-    border: 4px solid #000;
-    border-radius: 11px;
-    padding: 18px;
-    box-shadow: 
-        0 0 0 2px var(--roblox-orange),
-        0 10px 20px rgba(0,0,0,0.4);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: fit-content;
-}
-
-.project-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    border-color: var(--roblox-orange);
-    box-shadow: 
-        0 0 0 2px var(--roblox-orange),
-        0 15px 30px rgba(0,0,0,0.4),
-        0 0 20px rgba(255,123,38,0.3);
-    z-index: 1;
-}
-
-.project-card h3 {
-    color: #ffffff;
-    font-size: 20px;
-    font-weight: 900;
-    text-transform: none;
-    text-shadow: 
-        -2px -2px 0 #000,
-        2px -2px 0 #000,
-        -2px 2px 0 #000,
-        2px 2px 0 #000,
-        0 0 10px var(--roblox-orange);
-    margin: 0 0 15px 0; /* Adjusted margins */
-}
-
-.project-embed {
-    width: 100%;
-    background: var(--box-bg);
-    border: 3px solid #000;
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.project-embed::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent 0%,
-        rgba(255,255,255,0.1) 50%,
-        transparent 100%
-    );
-    transform: translateX(-100%) translateY(-100%) rotate(45deg);
-    transition: transform 0.3s ease;
-    pointer-events: none;
-}
-
-.project-card:hover .project-embed {
-    border-color: var(--roblox-orange);
-    box-shadow: 
-        0 0 15px rgba(255,123,38,0.3),
-        0 0 30px rgba(0,0,0,0.3);
-}
-
-.project-card:hover .project-embed::after {
-    transform: translateX(100%) translateY(100%) rotate(45deg);
-}
-
-.project-embed a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.project-embed img {
+.profile-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -496,126 +430,51 @@ h2 {
     transition: transform 0.3s ease;
 }
 
-.project-card:hover .project-embed img {
-    transform: scale(1.1);
-}
-
-/* Handle different aspect ratios */
-.project-embed[style*="aspect-ratio"] a {
-    height: 100%;
-}
-
-.project-embed:not([style*="aspect-ratio"]) {
-    aspect-ratio: 16 / 9;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .project-grid {
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 15px;
-    }
-
-    .project-card {
-        padding: 15px;
-    }
-
-    .project-card h3 {
-        font-size: 18px;
-        margin-bottom: 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    .project-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-    
-    .project-card:hover {
-        transform: translateY(-4px) scale(1.01); /* Reduced effect on mobile */
-    }
-}
-
-.social-links {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 18px;
-    padding: 11px;
-}
-
-.social-button {
-    background: linear-gradient(to bottom, #4a4d52, #2e3035);
-    background-image: url('assets/stud_texture.png') !important; /* Force the texture */
-    background-size: 50px 50px !important; /* Smaller texture size */
-    background-blend-mode: overlay !important;
-    color: var(--text);
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 900;
-    font-size: 16px;
-    text-transform: uppercase;
-    border: 3px solid #000;
-    box-shadow: 
-        inset 0 1px 0 rgba(255,255,255,0.3),
-        0 0 0 2px #4a4d52;
-    transition: all 0.2s ease;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
+.bottomBar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    bottom: 0;
+    top: 1;
     width: 100%;
     box-sizing: border-box;
+    padding: 6px 12px;
 }
 
-.social-button::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent 0%,
-        rgba(255,255,255,0.1) 50%,
-        transparent 100%
-    );
-    transform: translateX(-100%) translateY(-100%) rotate(45deg);
-    transition: transform 0.3s ease;
+.affiliates-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    height: 31px;
+    -webkit-overflow-scrolling: touch;
+    transform: rotateX(180deg);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,123,38,0.6) rgba(0,0,0,0.2);
+    padding-bottom: 12px;
 }
 
-.social-button:hover::after {
-    transform: translateX(100%) translateY(100%) rotate(45deg);
+.affiliates-scroll > * {
+    display: inline-block;
+    vertical-align: middle;
+    transform: rotateX(180deg);
+    margin-right: 8px;
 }
 
-.social-button:hover {
-    background: linear-gradient(to bottom, #5a5d62, #3e4045);
-    background-image: url('assets/stud_texture.png') !important;
-    background-size: 50px 50px !important; /* Smaller texture size */
-    background-blend-mode: overlay !important;
-    border-color: var(--roblox-orange);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 
-        inset 0 1px 0 rgba(255,255,255,0.3),
-        0 0 0 2px #5a5d62,
-        0 8px 15px rgba(0,0,0,0.5),
-        0 0 20px rgba(255,123,38,0.3);
-    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+.affiliates-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+.affiliates-scroll::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.2);
+    border-radius: 4px;
+}
+.affiliates-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255,123,38,0.6);
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
 }
 
-.social-button:active {
-    background: linear-gradient(to bottom, #2e3035, #4a4d52);
-    background-image: url('assets/stud_texture.png') !important;
-    background-size: 50px 50px !important; /* Smaller texture size */
-    background-blend-mode: overlay !important;
-    transform: translateY(1px);
-    box-shadow: 
-        inset 0 2px 4px rgba(0,0,0,0.3),
-        0 0 0 2px #2e3035;
-}
-
-/* Mobile responsiveness */
 @media (max-width: 768px) {
     .topbar-content {
         flex-direction: column;
@@ -656,7 +515,6 @@ h2 {
     }
 }
 
-/* Adjust topbar height for very small screens */
 @media (max-width: 480px) {
     .topbar {
         height: auto;
@@ -674,9 +532,29 @@ h2 {
     }
 }
 
-/* Adjust padding for mobile screens */
 @media (max-width: 480px) {
     body {
-        padding-top: 110px; /* Increased padding for collapsed topbar (90px height + 20px buffer) */
+        padding-top: 110px;
+    }
+
+    .languages-scroll > * {
+        width: 50px;
+        height: 50px;
+        margin-right: 4px;
+    }
+
+    .lang-item span {
+        font-size: 8px;
+        padding: 1px 0;
+    }
+
+    .scroller-section {
+        padding: 8px 0;
+    }
+
+    .lang-item,
+    .work-scroll a {
+        border-radius: 8px;
+        border-width: 1px;
     }
 }
