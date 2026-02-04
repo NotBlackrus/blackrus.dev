@@ -182,7 +182,7 @@ body::-webkit-scrollbar {
     max-width: 100%;
     object-fit: contain;
     transition: transform 0.3s ease, filter 0.3s ease;
-    filter: grayscale(100%);
+    filter: grayscale(100%) brightness(0);
 }
 
 .websites-list a:hover img {
