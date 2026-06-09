@@ -4,104 +4,322 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blackrus.dev</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="topbar">
-        <div class="topbar-content">
-            <div class="logo-container">
-                <div class="topbar-profile">
-                    <img src="assets/blackrus.png" alt="Profile Picture" class="topbar-profile-image">
+    <div class="topbar">
+        <div class="topbar-scroll">
+            <a class="topbar-btn" href="#top">Top</a>
+            <a class="topbar-btn" href="#about-me">About Me</a>
+            <a class="topbar-btn" href="#projects-section">Projects</a>
+        </div>
+    </div>
+    <div id="top">
+        <div align="center">
+            <header>
+                <section class="title">
+                    <h1>
+                        Black‰rus
+                    </h1>
+                </section>
+            </header>
+        </div>
+        <div align="center">
+            <section class="container" id="activity-section">
+                <div class="profile-wrapper">
+                    <img class="discord-profile" src="assets/favIcon.png" alt="Blackrus' Discord Profile Picture">
+                    <section class="discord-device-container" id="discord-activity">
+                        <img class="discord-device" id="discord-device" src="assets/Discord/Desktop.svg" alt="Active Discord device">
+                    </section>
+                    <div id="discord-status-container" class="discord-status-container">
+                        <img class="discord-status-bubbles" src="/assets/Discord/thought_bubble.png" alt="Discord Status Bubbles">
+                        <section id="discord-status" class="discord-status"></section>
+                    </div>
                 </div>
-                <div class="logo">Blackrus.dev</div>
-            </div>
-            <div class="nav-links">
-                <a href="#about" class="nav-button">About Me</a>
-                <a href="#work" class="nav-button">My Work</a>
-                <a href="#contributions" class="nav-button">Contributions</a>
-                <a href="#social" class="nav-button">Social Links</a>
+                <div id="spotify-container" class="spotify-container">
+                    <section class="spotify-activity section-box">
+                        <div class="spotify-activity-header">
+                            <img class="spotify-logo" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify Logo"/>
+                            <span class="spotify-badge">LISTENING TO</span>
+                        </div>
+
+                        <div class="spotify-activity-body">
+                            <img
+                            id = "spotify-album-art"
+                            class="spotify-album-art"
+                            src="https://i.scdn.co/image/ab67616d0000b273280a001e43c93792dd1e27c7"
+                            alt="Album Art"
+                            />
+
+                            <div class="spotify-track-info">
+                            <p id = "spotify-track-name" class="spotify-track-name">Harvey</p>
+                            <p id = "spotify-artist-name" class="spotify-artist-name">By Her's</p>
+                            <p id = "spotify-album-name" class="spotify-album-name">Invitation to Her's</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </div>
+        <div align="center">
+            <div class="websites-list">
+                <a href="https://polytoria.com/users/60647" style="text-decoration: none" title="Polytoria" target="_blank"><img src="assets/websites-list/Polytoria.svg" loading="lazy" alt="Polytoria" /></a>
+                <a id="roblox" href="https://www.roblox.com/users/1585649591/profile" style="text-decoration: none" title="Roblox 🤮" target="_blank"><img src="assets/websites-list/Roblox.svg" loading="lazy" alt="Roblox" /></a>
+                <a href="https://www.tiktok.com/@notblackrus" style="text-decoration: none" title="TikTok" target="_blank"><img src="assets/websites-list/TikTok.svg" loading="lazy" alt="TikTok" /></a>
+                <a href="https://github.com/NotBlackrus" style="text-decoration: none" title="GitHub" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" loading="lazy" alt="GitHub" /></a>
+                <a href="https://twitter.com/NotBlackrus" style="text-decoration: none" title="Twitter" target="_blank"><img src="assets/websites-list/twitter.svg" loading="lazy" alt="Twitter" /></a>
+                <a href="https://bsky.app/profile/blackrus.dev" style="text-decoration: none" title="Bluesky" target="_blank"><img src="assets/websites-list/Bluesky.svg" loading="lazy" alt="Bluesky" /></a>
+                <a href="https://discord.gg/2jYmBdFsTF" style="text-decoration: none" title="Discord" target="_blank"><img src="assets/websites-list/discord.svg" loading="lazy" alt="Discord" /></a>
             </div>
         </div>
-    </nav>
-    
-    <div class="container">
-        <header>
-            <h1 class="roblox-title">Blackrus</h1>
-            <div class="profile-image-container">
-                <img src="assets/blackrus.png" alt="Profile Picture" class="profile-image">
-            </div>
-        </header>
+        <div class="side-padding" align="center">
+            <section id="about-me" class="about-section">
+                <h2>About Me</h2>
+                <h3><small>Animator EST.2019 / Programmer EST.2020</small></h3>
+                <p>I'd like to say that I'm not good at describing myself, but I have the self-conscious to acknowledge that I'm a very peer-driven person. From the very day I began development, it was always for someone else. I first started animating for a dear best friend of mine around 2019, which is what sparked my love for Animating.<br>
+                Back then, it wasn't about the joyful process of animating, it was the review and uplifting remarks I got from my friends. That eventually led me to fill the role of programmer when they needed one, which is what sparked my love for programming.<br>
+                I don't enjoy to think that I was left out in favor of a more performative- more composed person, but I can't help but think that way to this day. Though, I do like to boast more about how I've gotten to larger projects with "better pays" and "bigger audiences".<br>
+                I like to feel <strong>important.</strong></p>
+            </section>
+        </div>
+        <div align="center">
+            <section class="body-container">
+                <div id="projects-section" class="projects-section">
+                    <div class="tabs-nav">
+                        <button class="tab-btn active" data-tab="Roblox"><img src="/assets/projects/Roblox_Full.svg" alt="Roblox" /></button>
+                        <button class="tab-btn" data-tab="Polytoria"><img src="/assets/projects/Polytoria_Full.svg" alt="Polytoria" /></button>
+                        <button class="tab-btn" data-tab="Github">Github</button>
+                    </div>
 
-        <section id="about" class="content-box">
-            <h2>About Me</h2>
-            <p>Hello and welcome to my website! <br>
-                <br>
-                I've been a very busy creator on Roblox, with working on Programming and Animation! I've had 7 years of animating and 6 years of programming under my belt, and I'm always looking to improve and innovate! <br>
-                <br>
-                My current commission status is: <strong>CLOSED!</strong> <br>
-                (This may be out of date, don't be afraid to contact me on Discord!)
-            </p> 
-        </section>
+                    <div class="tabs-content">
+                        <div class="tab-panel active" id="Roblox">
+                            <div class="project-card" 
+                                data-project-title="NOTBLACKRUS" 
+                                data-project-description=
+                                    "<h3>UGC Emotes</h3>
+                                    My group where I upload my UGC emotes to! I might consider making an emote game if I create enough." 
+                                data-project-url="https://www.roblox.com/communities/6558843/NotBlackrus" 
+                                data-project-url-text="&lt View &gt"
+                                data-project-discord="https://discord.gg/2jYmBdFsTF"
+                            >
+                                <img class="project-image" src="/assets/projects/Roblox_Full.svg" alt="Game Project" />
+                                <h3>NOTBLACKRUS</h3>
+                                <p>UGC Emotes</p>
+                                <div class="project-card-actions">
+                                    <button type="button" class="project-details-btn">Details</button>
+                                    <a class="project-discord-link" target="_blank" title="Join Discord" href="https://discord.gg/2jYmBdFsTF"><img src="assets/websites-list/discord.svg" alt="Discord"/></a>
+                                    <a target="_blank" title="Head to group page" href="https://www.roblox.com/communities/6558843/NotBlackrus">&lt View &gt</a>
+                                </div>
+                            </div>
+                            <div class="project-card" 
+                                data-project-title="UNNATURAL DISASTERS SURVIVAL" 
+                                data-project-description=
+                                    "<h3>Lead Animator • Co-Lead Programmer</h3>
+                                    My most <strong>ambitious</strong> project thus far, not a single line of code in this game hasn't been read or altered by me.<br>
+                                    My largest contribution being the extremely versatile <i><strong>emote system!</strong></i> Most of the emotes themselves were animated by yours truly as well." 
+                                data-project-url="https://www.roblox.com/games/7233282897/" 
+                                data-project-url-text="&lt Play &gt"
+                                data-project-discord="https://discord.gg/MRymHEqrv5"
+                            >
+                                <img class="project-image" src="/assets/projects/UDS.webp" alt="Game Project" />
+                                <h3>UNNATURAL DISASTERS SURVIVAL</h3>
+                                <p>Lead Animator<br>Co-Lead Programmer</p>
+                                <div class="project-card-actions">
+                                    <button type="button" class="project-details-btn">Details</button>
+                                    <a class="project-discord-link" target="_blank" title="Join Discord" href="https://discord.gg/MRymHEqrv5"><img src="assets/websites-list/discord.svg" alt="Discord"/></a>
+                                    <a target="_blank" title="Head to game page" href="https://www.roblox.com/games/7233282897/">&lt Play &gt</a>
+                                </div>
+                            </div>
+                            <div class="project-card" 
+                                data-project-title="Sonic Reincarnated RP" 
+                                data-project-description=
+                                    "<h3>Lead Developer</h3>
+                                    Lol."
+                                data-project-url="https://www.roblox.com/games/9416523503/"
+                                data-project-url-text="&lt Play &gt"
+                                data-project-discord="https://discord.gg/GaK4yWBFsr"
+                            >
+                                <img class="project-image" src="/assets/projects/REIN.webp" alt="Game Project" />
+                                <h3>Sonic Reincarnated RP</h3>
+                                <p>Lead Developer</p>
+                                <div class="project-card-actions">
+                                    <button type="button" class="project-details-btn">Details</button>
+                                    <a class="project-discord-link" target="_blank" title="Join Discord" href="https://discord.gg/GaK4yWBFsr"><img src="assets/websites-list/discord.svg" alt="Discord"/></a>
+                                    <a target="_blank" title="Head to game page" href="https://www.roblox.com/games/9416523503/">&lt Play &gt</a>
+                                </div>
+                            </div>
+                            <div class="project-card" 
+                                data-project-title="Undertale RP: Crossing Timelines" 
+                                data-project-description=
+                                    "<h3>Former Animator & Programmer</h3>
+                                    This project was the first I got my hands on that helped me learn what it meant to be &quot;mature&quot;, lots of mistakes made here but I hold it dearly to me.<br>
+                                    Without this project, I don't believe I would have pursued programming to the level I have, so it deserves a notable spot on my site."
+                                data-project-url="https://www.roblox.com/games/4614624330/"
+                                data-project-url-text="&lt Play &gt"
+                            >
+                                <img class="project-image" src="/assets/projects/UTRP.webp" alt="Game Project" />
+                                <h3>Undertale RP: Crossing Timelines</h3>
+                                <p>Former Animator <br> Former Programmer</p>
+                                <div class="project-card-actions">
+                                    <button type="button" class="project-details-btn">Details</button>
+                                    <a target="_blank" title="Head to game page" href="https://www.roblox.com/games/4614624330/">&lt Play &gt</a>
+                                </div>
+                            </div>
+                            <div class="project-card" 
+                                data-project-title="SegaSonic: Origins" 
+                                data-project-description=
+                                    "<h3>Contributor</h3>
+                                    Not much to note about this other than its origins from Team Genesis Studios (Undertale RP above), I contributed an animation for Tails."
+                                data-project-url="https://www.roblox.com/games/109398225325963/"
+                                data-project-url-text="&lt Play &gt"
+                                data-project-discord="https://discord.gg/SrPjY8DdCN"
+                            >
+                                <img class="project-image" src="/assets/projects/SSO.webp" alt="Game Project" />
+                                <h3>SegaSonic: Origins</h3>
+                                <p>Contributor</p>
+                                <div class="project-card-actions">
+                                    <button type="button" class="project-details-btn">Details</button>
+                                    <a class="project-discord-link" target="_blank" title="Join Discord" href="https://discord.gg/SrPjY8DdCN"><img src="assets/websites-list/discord.svg" alt="Discord"/></a>
+                                    <a target="_blank" title="Head to game page" href="https://www.roblox.com/games/109398225325963/">&lt Play &gt</a>
+                                </div>
+                            </div>
+                        </div>
 
-        <section id="work" class="content-box">
-            <h2>My Work</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>ECLIPSE ESSENTIALS (Formerly VINTAGE ADMIN) <br>
-                        
-                        <strong>
-                            Eclipse Essentials is an administration module built from the ambition of Vintage Admin to become more than just an admin system, 
-                            it has features and functionality seen in no other admin system, and can essentially be a game-creating kit!
-                        </strong>
-                    </h3>
-                    <div class="project-embed">
-                        <a href="https://www.roblox.com/games/10969646255/Eclipse-Essentials-Testing" target="_blank">
-                            <img src="assets/vintage_admin_thumbnail.png" alt="Eclipse Essentials (Formerly Vintage Admin)">
-                        </a>
+                        <div class="tab-panel" id="Polytoria">
+                            <div class="project-card" 
+                                data-project-title="Undead Ambush" 
+                                data-project-description=
+                                    "<h3>Creator</h3>
+                                    My submission to Polytoria's Halloween GameJam of 2025, with the assistance of Tsuwuki's models for weapons.<br>
+                                    I ended up landing fourth place due to major bugs with multiplayer on the day of my game's judgement, which really upset me." 
+                                data-project-url="https://polytoria.com/places/15147"
+                                data-project-url-text="&lt Play &gt"
+                            >
+                                <img class="project-image" src="/assets/projects/UA.png" alt="Other Project" />
+                                <h3>Undead Ambush</h3>
+                                <p>Creator<br>(Halloween GameJam 2025)</p>
+                                <div class="project-card-actions">
+                                    <button type="button" class="project-details-btn">Details</button>
+                                    <a target="_blank" title="Head to game page" href="https://polytoria.com/places/15147">&lt Play &gt</a>
+                                </div>
+                            </div>
+                            <div class="project-card" 
+                                data-project-title="Worlderful" 
+                                data-project-description=
+                                    "<h3>Creator</h3>
+                                    My semi-effortful approach to a game on Polytoria outside of Zombies, I plan to eventually turn it into an unique RPG story-driven game." 
+                                data-project-url="https://polytoria.com/places/15401"
+                                data-project-url-text="&lt Play &gt"
+                            >
+                                <img class="project-image" src="/assets/projects/Worlderful.png" alt="Other Project" />
+                                <h3>Worlderful</h3>
+                                <p>Creator</p>
+                                <div class="project-card-actions">
+                                    <button type="button" class="project-details-btn">Details</button>
+                                    <a target="_blank" title="Head to game page" href="https://polytoria.com/places/15401">&lt Play &gt</a>
+                                </div>
+                            </div>
+                            <div class="project-card" 
+                                data-project-title="Worlderful" 
+                                data-project-description=
+                                    "<h3>Co-Creator - Programmer</h3>
+                                    After the Halloween GameJam of 2025, Tsuwuki and I decided to create a roleplay game based on Robloxian High School, not much else to note about this game, our visions were very ambitious." 
+                                data-project-url="https://polytoria.com/places/20783"
+                                data-project-url-text="&lt Play &gt"
+                            >
+                                <img class="project-image" src="/assets/projects/PHS.png" alt="Other Project" />
+                                <h3>Polytoria High School</h3>
+                                <p>Co-Creator - Programmer</p>
+                                <div class="project-card-actions">
+                                    <button type="button" class="project-details-btn">Details</button>
+                                    <a target="_blank" title="Head to game page" href="https://polytoria.com/places/20783">&lt Play &gt</a>
+                                </div>
+                            </div>
+                            <div class="project-card" 
+                                data-project-title="Call Of Polytoria" 
+                                data-project-description=
+                                    "<h3>Contributor</h3>
+                                    Made some contributions with my Game Template, and have yet to make more." 
+                                data-project-url="https://polytoria.com/places/126877"
+                                data-project-url-text="&lt Play &gt"
+                            >
+                                <img class="project-image" src="/assets/projects/COP.png" alt="Other Project" />
+                                <h3>Call Of Polytoria</h3>
+                                <p>Contributor</p>
+                                <div class="project-card-actions">
+                                    <button type="button" class="project-details-btn">Details</button>
+                                    <a target="_blank" title="Head to game page" href="https://polytoria.com/places/126877">&lt Play &gt</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-panel" id="Github">
+                            <div class="project-card" 
+                                data-project-title="PlayerAnimator" 
+                                data-project-description=
+                                    "<h3>! A WORKAROUND TO ROBLOX'S BUILT-IN ANIMATION REPLICATION !</h3>
+                                    <p>I had originally created this when working on Unnatural Disaster Survival's emote system, mainly because I had a huge problem;<br>
+                                    Roblox's Animator automatically replicates <i>all</i> animations from a client to the server, this means everything loaded and ran completely locally autonomously became replicated!<br>
+                                    This wasn't an acceptable condition for my emote system as I wanted synced emotes, audios, and effects! So, I made this module. Functionally, it removes all server-replication of animations!<br>
+                                    Well, excluding some networking for desired animations to have their essential data passed over for other clients to play. But otherwise- you can run animations completely client-sided!<br>
+                                    The result is a very clean and client-controlled environment for your animations and their desired behavior.</p>" 
+                                data-project-url="https://github.com/NotBlackrus/PlayerAnimator"
+                                data-project-url-text="&lt View Repository &gt"
+                            >
+                                <img class="project-image" src="/assets/projects/UDS.webp" alt="Other Project" />
+                                <h3>PlayerAnimator</h3>
+                                <p>Roblox Open Resource</p>
+                                <div class="project-card-actions">
+                                    <button type="button" class="project-details-btn">Details</button>
+                                    <a target="_blank" title="Head to repository" href="https://github.com/NotBlackrus/PlayerAnimator">&lt View Repository &gt</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="contributions" class="content-box">
-            <h2>My Contributions</h2>
-            <div class="project-grid">
-                <!-- Square image -->
-                <div class="project-card">
-                    <h3>UNNATURAL DISASTERS <br>
-                        -[Lead Developer]- <br>
-                        One of my more prouder contributions, Unnatural Disasters by Devbotics is a round-based survival minigame 
-                        haven when your familiar "Natural Disaster Survival"-esque objectives have so much more to them! <br>
-                        With gears, particles, sound effects, titles, and emotes, you can customize your in-game experience to your very whim! <br>
-                        <br>
-                        My contributions are as followed: <br>
-                            - Programming the emote system <br>
-                            - Programming alongside/alone on core features (shop, rounds, data structures, etc.) <br>
-                            - Animating. (everything.) <br>
-                            - Minor and major bug fixing <br>
-                            - Commission management (making sure jobs are done and deadlines are met) <br>
-                    </h3>
-                    <div class="project-embed">
-                        <a href="https://www.roblox.com/games/7233282897/Unnatural-Disaster-Survival" target="_blank">
-                            <img src="assets/unnatural_disasters.png" alt="Unnatural Disasters">
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="social" class="content-box">
-            <h2>Social Links</h2>
-            <div class="social-links">
-                <a href="https://twitter.com/NotBlackrus" target="_blank" class="social-button">Twitter</a>
-                <a href="https://bsky.app/profile/blackrus.dev" target="_blank" class="social-button">Bluesky</a>
-                <a href="https://www.roblox.com/users/1585649591/profile" target="_blank" class="social-button">Roblox</a>
-                <a href="https://github.com/NotBlackrus" target="_blank" class="social-button">GitHub</a>
-                <a href="https://discord.gg/2jYmBdFsTF" target="_blank" class="social-button">Discord</a>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
+    <div class="affiliates" id="affiliates">
+        <div class="affiliates-scroll">
+            <a class="flexSize" href="https://lao.ooo/" style="text-decoration: none" title="the stars" target="_parent">
+                <img src="https://lao.ooo/lao.webp" loading="lazy" alt="lao's website" />
+            </a>
+            <a class="flexSize" href="https://blueberry.coffee/" style="text-decoration: none" target="_parent"aria-label="blueberry wolf friend website link" title="heyo!">
+                <img src="https://blueberry.coffee/static/button.png" alt="blueberry.coffee"style="image-rendering: pixelated" loading="lazy" />
+            </a>
+            <a class="flexSize" href="https://ripooof.neocities.org" target="_blank">
+                <img alt="sprite's workshop" src="https://ripooof.neocities.org/img/button/button.gif" title="sprite's workshop">
+            </a>
+            <a class="flexSize" href="https://cobalt.tools" style="text-decoration: none" target="_parent"aria-label="cobalt.tools video downloader" title="save what you love">
+                <img src="https://lao.ooo/butts/cobutt.webp" loading="lazy" alt="cobalt.tools" />
+            </a>
+            <a class="flexSize" href="https://catcut.snaz.in" style="text-decoration: none" target="_parent" aria-label="catcut media editor"title="in-browser media editing">
+                <img src="https://lao.ooo/butts/catcut.webp" loading="lazy" alt="catcut.snaz.in" />
+            </a>
+            <a class="flexSize" href="https://cyber.dabamos.de/88x31/">
+                <img alt="88x31 buttons" src="https://lao.ooo/butts/88x31.gif">
+            </a>
+            <img class="flexSize" src="https://cyber.dabamos.de/88x31/Sega-Elite.gif">
+            <img class="flexSize" alt="Graphic Design Is My Passion!" src="https://lao.ooo/butts/graphicdesign.gif">
+            <img class="flexSize" src="https://fustilugz.neocities.org/buttons/New%20buttons%20omg/IMG-7330.png">
+            <img class="flexSize" src="https://fustilugz.neocities.org/buttons/New%20buttons%20omg/xbox.jpg">
+            <img class="flexSize" src="https://fustilugz.neocities.org/buttons/new%20ones%20lol/minecraft.gif">
+            <img class="flexSize" src="https://fustilugz.neocities.org/buttons/7/7/e23.gif">
+            <img class="flexSize" src="https://fustilugz.neocities.org/buttons/13/drpr.gif">
+            <img class="flexSize" src="https://fustilugz.neocities.org/buttons/13/photoshop.png">
+        </div>
+    </div>
+    <div class="project-modal-overlay" id="project-modal" aria-hidden="true">
+        <div class="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+            <button class="project-modal-close" aria-label="Close details">×</button>
+            <h2 id="project-modal-title" class="project-modal-title"></h2>
+            <p class="project-modal-description"></p>
+            <a id="project-modal-link" class="project-modal-link" title="External Link" href="#" target="_blank"></a>
+            <a id="project-modal-discord" class="modal-discord-link" title="Visit project's Discord" href="#" target="_blank"><img src="assets/websites-list/discord.svg" loading="lazy" alt="Discord" /></a>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
-
