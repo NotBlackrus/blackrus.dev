@@ -105,7 +105,6 @@ function DiscordPresence(request) {
         if (data.active_on_discord_mobile) {
             activityImage.src = "/assets/Discord/Mobile.svg"
         }
-        console.log(data)
         activityImage.style.filter = ActivityDeviceColors[data.discord_status]
         activityContainer.style.background = ActivityContainerColors[data.discord_status]
 
